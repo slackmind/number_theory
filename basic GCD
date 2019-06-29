@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <math.h>
+
+int basic_gcd(int a, int b) {
+    int r;                  // remainder while dividing a by b
+    if (a < 0) a = -a;      // swaps if negative
+    if (b < 0) b = -b;
+
+    while (r != 0) {        // continues until no remainder
+        r = a % b;
+        a = b;
+        b = r;
+    }
+    
+    return a;               // technically should last modulus (b) which is now (a)
+}
+
+int main(){
+    int a;
+    int b;
+    int c;
+
+    printf("\nEnter two integers to calculate their Greatest Common Divisor:");
+    printf("\n\nFirst number:\t\t\t");
+    scanf("%d", &a);
+    printf("\nSecond number:\t\t\t");
+    scanf("%d", &b);
+    printf("\nThe GCD of %d and %d is....\t", a, b);
+    c = basic_gcd(a,b);
+    printf("%d", c);
+    printf("\nHave a great day");
+    getchar();
+}
