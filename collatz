@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+int main() {
+
+    int number;
+    int steps = 0;
+    int max_val;
+
+    printf("Enter a number to check the Collatz Cycle Length:  \n");
+    scanf("%d", &number);
+    max_val = number;
+
+    while (number != 1) {
+
+        // check if the number is odd
+        if (number&1) {
+            // multiply by 3
+            number *= 3;
+            // add one
+            number++;
+            // keep count of the steps taken
+            steps++;
+            // check if reached max_value
+            if (number > max_val) {
+                max_val = number;
+            }
+            printf("\nCurrent value is %d", number);
+        } 
+        else {
+            // divide by two
+            number = number >> 1;
+            // keep count of the steps taken
+            steps++;
+            printf("\nCurrent value is %d", number);
+        }
+    }
+    
+    printf("\n\nSteps taken:  %d", steps);
+    printf("\nHighest value reached:  %d", max_val);
+
+    return 0;
+}   
